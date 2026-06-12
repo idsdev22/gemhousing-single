@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | Greenfield Lavender</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <style>
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('/assets/PlusJakartaSans-VariableFont_wght-D7klJmRH.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Sacred Valley';
+        src: url('/assets/Sacred_Valley-CrxI29Lt.ttf') format('truetype');
+      }
+      
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8f6f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      .thankyou-card {
+        background: #ffffffeb;
+        border-radius: 30px;
+        width: 100%;
+        max-width: 550px;
+        padding: 60px 40px;
+        text-align: center;
+        box-shadow: 0 20px 60px #00000014;
+        border: 1px solid #eee;
+        animation: cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      @keyframes cardAppear {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      
+      .icon-wrapper {
+        width: 90px;
+        height: 90px;
+        background: #8c60a221;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        color: #7c4996;
+      }
+      
+      .icon-wrapper svg {
+        width: 44px;
+        height: 44px;
+      }
+      
+      h1 {
+        font-family: 'Sacred Valley', sans-serif;
+        color: #111;
+        font-size: 48px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      
+      p {
+        color: #555;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+      
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #7c4996;
+        text-decoration: none;
+        border-radius: 15px;
+        padding: 18px 36px;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        box-shadow: 0 10px 20px #7c49963d;
+      }
+      
+      .back-btn:hover {
+        opacity: 0.95;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px #7c499652;
+      }
+      
+      @media (max-width: 768px) {
+        .thankyou-card {
+          padding: 40px 25px;
+        }
+        h1 {
+          font-size: 36px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thankyou-card">
+      <div class="icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h1>Thank You!</h1>
+      <p>Your enquiry has been submitted successfully. A relationship manager from Greenfield Housing will reach out to you shortly to provide priorities access, pricing sheets, and site visit coordinates.</p>
+      <a href="/" class="back-btn">Go back to Home</a>
+    </div>
+  </body>
+</html>
