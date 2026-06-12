@@ -2180,3 +2180,179 @@ label {
     /* Hide vertical short on tiny screens to save space */
   }
 }
+
+/* ==============================================================
+   Floor Plans Section
+   ============================================================== */
+
+.floor-plans {
+  padding: 80px 0;
+  background: transparent;
+}
+
+.floor-plan-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.floor-plan-tabs .fp-btn {
+  padding: 12px 40px;
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.floor-plan-tabs .fp-btn:nth-child(1) {
+  background-color: transparent;
+  color: #264653;
+  border: 2px solid #264653;
+}
+
+.floor-plan-tabs .fp-btn:nth-child(1).active {
+  background-color: #264653;
+  color: #fff;
+}
+
+.floor-plan-tabs .fp-btn:nth-child(2) {
+  background-color: transparent;
+  color: #E7A963;
+  border: 2px solid #E7A963;
+}
+
+.floor-plan-tabs .fp-btn:nth-child(2).active {
+  background-color: #E7A963;
+  color: #fff;
+  border-color: #E7A963;
+}
+
+.floor-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .floor-plan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .floor-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.floor-plan-card {
+  perspective: 1200px;
+  /* Stronger perspective for 3D effect */
+  position: relative;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fp-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.6s ease;
+  transform-style: preserve-3d;
+  background: transparent;
+}
+
+.fp-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.fp-label {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #264653;
+  font-weight: 700;
+  pointer-events: none;
+  transform: translateZ(40px);
+  /* 3D pop effect for the text label */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* The core 3D effect on hover */
+.floor-plan-card:hover .fp-image-wrapper {
+  transform: rotateX(15deg) rotateY(-15deg) scale3d(1.05, 1.05, 1.05);
+  filter: drop-shadow(-15px 25px 20px rgba(0, 0, 0, 0.15));
+}
+
+.floor-plan-card:hover .fp-label {
+  transform: translateZ(60px);
+  /* Label pops out even more on hover */
+}
+
+/* ==============================================================
+   Floating Action Buttons (WhatsApp & Call)
+   ============================================================== */
+
+.floating-buttons {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.float-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.float-btn:hover {
+  transform: scale(1.15) translateY(-5px);
+  color: #fff;
+}
+
+.float-btn.whatsapp {
+  background-color: #25D366;
+  /* WhatsApp Green */
+}
+
+.float-btn.call {
+  background-color: #007BFF;
+  /* Classic Action Blue */
+}
+
+@media (max-width: 768px) {
+  .floating-buttons {
+    bottom: 90px;
+    right: 20px;
+  }
+
+  .float-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
