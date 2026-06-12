@@ -11,6 +11,7 @@ function App() {
   const [activeTabChanged, setActiveTabChanged] = useState(false)
   const [activeVideoId, setActiveVideoId] = useState(null)
   const [floorPlanTab, setFloorPlanTab] = useState('2bhk')
+  const [activeFaq, setActiveFaq] = useState(null)
 
   // Form states
   const [formData, setFormData] = useState({
@@ -186,6 +187,34 @@ function App() {
       ]
     }
   ]
+
+  // FAQ Data
+  const faqs = [
+    {
+      question: "What is the location of GemHousing Lavender?",
+      answer: "GemHousing Lavender is strategically located behind NGP Institutions in Kalapatti, Coimbatore, offering excellent connectivity to IT parks, schools, hospitals, and the airport."
+    },
+    {
+      question: "What types of properties are available?",
+      answer: "We offer exclusively designed 4 BHK luxury villas and premium 3 BHK apartments tailored for modern living."
+    },
+    {
+      question: "Is the project RERA approved?",
+      answer: "Yes, GemHousing Lavender is fully RERA approved (TN/11/Building/0121/2025), ensuring complete transparency and compliance."
+    },
+    {
+      question: "What amenities are provided?",
+      answer: "Residents can enjoy premium amenities including a rooftop swimming pool, modern fitness center, clubhouse, indoor play area, and a multipurpose hall."
+    },
+    {
+      question: "Are the homes Vastu-compliant?",
+      answer: "Yes, all our villas and apartments are meticulously designed to be 100% Vastu-compliant for your peace of mind and prosperity."
+    }
+  ]
+
+  const toggleFaq = (index) => {
+    setActiveFaq(activeFaq === index ? null : index)
+  }
 
   // Handle Scroll to shrink navbar and calculate scroll progress
   useEffect(() => {
@@ -679,6 +708,30 @@ function App() {
                 {cat.places.map((place, pIdx) => (
                   <p key={pIdx}>{place}</p>
                 ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="faq-section">
+        <div className="container">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <span className="reveal">Got Questions?</span>
+            <h2 className="reveal">Frequently Asked Questions</h2>
+            <div className="classic-divider reveal"></div>
+          </div>
+          <div className="faq-container reveal">
+            {faqs.map((faq, index) => (
+              <div key={index} className={`faq-item ${activeFaq === index ? 'active' : ''}`}>
+                <div className="faq-question" onClick={() => toggleFaq(index)}>
+                  <h3>{faq.question}</h3>
+                  <span className="faq-icon">{activeFaq === index ? '−' : '+'}</span>
+                </div>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
               </div>
             ))}
           </div>
